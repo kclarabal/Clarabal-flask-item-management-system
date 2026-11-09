@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mt-4">My Items</h2>
+
+<a href="{{ url_for('create') }}" class="btn btn-success mb-3">
+    Add New Item
+</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.idNum }}</td>
+            <td>{{ item.name }}</td>
+            <td>
+                <a href="{{ url_for('update', idNum=item.idNum) }}" class="btn btn-primary btn-sm">
+                    Edit
+                </a>
+
+                <form method="POST" action="{{ url_for('delete', idNum=item.idNum) }}" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
