@@ -1,0 +1,6 @@
+flaskENV/
+__pycache__/
+*.pyc
+instance/*.db
+.env
+*.swp
