@@ -58,3 +58,14 @@ def delete(idNum):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+import sys
+
+path = '/home/kclarabal/flask_site'
+if path not in sys.path:
+    sys.path.insert(0, path)
+
+from flask_site import app as application
+
+if __name__ == '__main__':
+    app.run()
